@@ -1,13 +1,14 @@
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export function useFetch() {
   const API_URL = import.meta.env.VITE_API_URL;
-
   const { logout } = useContext(AuthContext);
 
-  async function apiFetch(url, options = {}) {
+  // Usamos useCallback para que la función sea estable y no cambie en cada render
+  const apiFetch = useCallback(async (url, options = {}) => {
     const token = localStorage.getItem("token");
+    
     const res = await fetch(API_URL + url, {
       ...options,
       headers: {
@@ -17,9 +18,7 @@ export function useFetch() {
       },
     });
 
-    if (res.status === 204) {
-      return;
-    }
+    if (res.status === 204) return;
 
     const data = await res.json();
 
@@ -37,6 +36,6 @@ export function useFetch() {
     }
 
     return data;
-  }
+  }, [API_URL, logout]); 
   return { apiFetch };
 }

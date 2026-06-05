@@ -140,6 +140,7 @@ const ProjectDetailPage = () => {
               </ul>
 
               <p className="mt-8 text-center text-slate-400 text-sm font-medium">
+
                 Découvrez comment ce projet a été construit.
               </p>
             </div>

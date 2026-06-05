@@ -18,19 +18,17 @@ export const Navbar = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           
-          {/* LOGO */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="bg-indigo-600 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
                 <Briefcase size={20} className="text-white" />
               </div>
               <span className="text-xl font-bold tracking-tighter text-slate-900">
-                MI<span className="text-indigo-600">PORTFOLIO</span>
+                DEV<span className="text-indigo-600">WEB</span>
               </span>
             </Link>
           </div>
 
-          {/* DESKTOP NAV */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             <Link
               to="/"
@@ -51,7 +49,6 @@ export const Navbar = () => {
               Projets
             </Link>
 
-            {/* AREA DE AUTENTICACIÓN */}
             <div className="flex items-center gap-4 ml-4 pl-6 border-l border-slate-200">
               {isAuthenticated ? (
                 <>
@@ -84,7 +81,6 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
           <div className="flex md:hidden">
             <button
               onClick={toggleMenu}
@@ -96,7 +92,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU PANEL */}
       {isOpen && (
         <div className="md:hidden border-t border-slate-100 bg-white animate-in slide-in-from-top duration-200">
           <div className="space-y-1 px-4 pb-6 pt-4">
